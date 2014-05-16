@@ -40,3 +40,17 @@ kibana:
   log_opt: # log rotation
     max-size: "10m"
     max-file: "20"
+grafana:
+  image: grafana/grafana:2.5.0
+  ports:
+    - "3000:3000"
+  links:
+    - elasticsearch:elasticsearch
+  volumes:
+  # adjust the path before the colon to some local directory where the data should be stored at
+   - /var/data/docker/grafana/lib:/var/lib/grafana
+   - /var/data/docker/grafana/log:/var/log/grafana
+  log_driver: "json-file"
+  log_opt: # log rotation
+    max-size: "10m"
+    max-file: "20"
