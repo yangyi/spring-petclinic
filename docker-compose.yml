@@ -7,7 +7,7 @@ elasticsearch:
   # adjust the path before the colon to some local directory where the data should be stored at
    - /var/data/docker/elasticsearch:/usr/share/elasticsearch/data
   environment:
-  # - ES_HEAP_SIZE=6g # adjust heap size, should be half of your nodes RAM (max 30g)
+   - ES_HEAP_SIZE=512m # adjust heap size, should be half of your nodes RAM (max 30g)
   command: elasticsearch
     --cluster.name monitoring-cluster
     --node.box_type hot
